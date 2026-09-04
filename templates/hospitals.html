@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block title %}Hospitals | Blood Bank{% endblock %}
+
+{% block page_heading %}Hospitals{% endblock %}
+
+{% block page_subtitle %}
+Manage hospitals and their blood requirements
+{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<div class="page-header">
+
+    <div>
+        <h2>Hospital Management</h2>
+        <p>View and manage registered hospitals.</p>
+    </div>
+
+    <a href="#" class="btn btn-primary">
+        + Add Hospital
+    </a>
+
+</div>
+
+
+<!-- Statistics -->
+<div class="stats-grid">
+
+    <div class="stat-card">
+
+        <div class="stat-header">
+            <div class="stat-icon">🏥</div>
+        </div>
+
+        <h3>0</h3>
+        <p>Total Hospitals</p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-header">
+            <div class="stat-icon">🩸</div>
+        </div>
+
+        <h3>0</h3>
+        <p>Blood Requests</p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-header">
+            <div class="stat-icon">📋</div>
+        </div>
+
+        <h3>0</h3>
+        <p>Pending Requests</p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <div class="stat-header">
+            <div class="stat-icon">✓</div>
+        </div>
+
+        <h3>0</h3>
+        <p>Approved Requests</p>
+
+    </div>
+
+</div>
+
+
+<!-- Hospital Table -->
+<div class="card">
+
+    <div class="page-header">
+
+        <div>
+            <h2>Registered Hospitals</h2>
+            <p>Hospitals registered with the blood bank.</p>
+        </div>
+
+    </div>
+
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Hospital Name</th>
+                    <th>Location</th>
+                    <th>Contact</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                <tr>
+
+                    <td>#001</td>
+
+                    <td>
+                        <strong>Example Hospital</strong>
+                    </td>
+
+                    <td>Kathmandu</td>
+
+                    <td>9800000000</td>
+
+                    <td>
+                        <span class="badge badge-success">
+                            Active
+                        </span>
+                    </td>
+
+                    <td>
+
+                        <button class="btn btn-secondary">
+                            View
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

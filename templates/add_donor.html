@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Donor | Blood Bank{% endblock %}
+
+{% block page_heading %}Add Donor{% endblock %}
+
+{% block page_subtitle %}
+Register a new blood donor
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+        <h2>Register New Donor</h2>
+        <p>Enter the donor's information below.</p>
+    </div>
+
+    <a href="{% url 'donors_page' %}" class="btn btn-secondary">
+    ← Back to Donors
+</a>
+
+</div>
+
+
+<div class="card">
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <div class="form-grid">
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter donor name"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Blood Group</label>
+
+                <select name="blood_group" required>
+
+                    <option value="">Select Blood Group</option>
+
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Date of Birth</label>
+
+                <input
+                    type="date"
+                    name="dob"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Contact Number</label>
+
+                <input
+                    type="text"
+                    name="contact"
+                    placeholder="Enter contact number"
+                    maxlength="15"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Address</label>
+
+                <input
+                    type="text"
+                    name="address"
+                    placeholder="Enter address"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Last Donation Date</label>
+
+                <input
+                    type="date"
+                    name="last_donation_date"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div style="margin-top: 25px;">
+
+            <button type="submit" class="btn btn-primary">
+                🩸 Register Donor
+            </button>
+
+            <a href="{% url 'donors_page' %}" class="btn btn-secondary">
+    Cancel
+</a>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

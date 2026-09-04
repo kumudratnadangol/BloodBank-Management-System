@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Blood Units{% endblock %}
+
+{% block content %}
+<h1>Blood Units</h1>
+
+<form id="unitForm">
+    <h3 id="formTitle">Add New Blood Unit</h3>
+    <input type="hidden" id="unitId">
+
+    <label>Donor</label>
+    <select id="donorId" required></select>
+
+    <label>Blood Bank</label>
+    <select id="bankId" required></select>
+
+    <label>Blood Group</label>
+    <select id="bloodGroup" required>
+        <option value="">-- Select --</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+    </select>
+
+    <label>Collection Date</label>
+    <input type="date" id="collectionDate" required>
+
+    <label>Expiry Date</label>
+    <input type="date" id="expiryDate" required>
+
+    <label>Status</label>
+    <select id="status">
+        <option value="Available">Available</option>
+        <option value="Reserved">Reserved</option>
+        <option value="Expired">Expired</option>
+        <option value="Used">Used</option>
+    </select>
+
+    <button type="submit">Save Blood Unit</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Donor</th>
+            <th>Blood Bank</th>
+            <th>Blood Group</th>
+            <th>Collection Date</th>
+            <th>Expiry Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody id="unitTableBody"></tbody>
+</table>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/units.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Blood Requests{% endblock %}
+
+{% block content %}
+<h1>Blood Requests</h1>
+
+<form id="requestForm">
+    <h3 id="formTitle">Add New Request</h3>
+    <input type="hidden" id="requestId">
+
+    <label>Hospital</label>
+    <select id="hospitalId" required></select>
+
+    <label>Blood Group</label>
+    <select id="bloodGroup" required>
+        <option value="">-- Select --</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+    </select>
+
+    <label>Units Requested</label>
+    <input type="number" id="unitsRequested" min="1" required>
+
+    <label>Status</label>
+    <select id="status">
+        <option value="Pending">Pending</option>
+        <option value="Approved">Approved</option>
+        <option value="Rejected">Rejected</option>
+        <option value="Fulfilled">Fulfilled</option>
+    </select>
+
+    <button type="submit">Save Request</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Hospital</th>
+            <th>Blood Group</th>
+            <th>Units Requested</th>
+            <th>Status</th>
+            <th>Request Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody id="requestTableBody"></tbody>
+</table>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/requests.js' %}"></script>
+{% endblock %}

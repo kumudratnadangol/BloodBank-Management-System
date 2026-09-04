@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+
+{% block title %}Donors | Blood Bank{% endblock %}
+
+{% block page_heading %}Donors{% endblock %}
+
+{% block page_subtitle %}
+Manage registered blood donors
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+        <h2>Donor Management</h2>
+        <p>View and manage all registered blood donors.</p>
+    </div>
+
+   <a href="{% url 'add_donor' %}" class="btn btn-primary">
+    + Add Donor
+</a>
+
+</div>
+
+
+<div class="stats-grid">
+
+    <div class="stat-card">
+        <div class="stat-header">
+            <div class="stat-icon">👥</div>
+        </div>
+
+        <h3>{{ donors|length }}</h3>
+        <p>Total Donors</p>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-header">
+            <div class="stat-icon">🩸</div>
+        </div>
+
+        <h3>8</h3>
+        <p>Blood Groups</p>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-header">
+            <div class="stat-icon">✓</div>
+        </div>
+
+        <h3>Active</h3>
+        <p>Donor Status</p>
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <div class="page-header">
+
+        <div>
+            <h2>Registered Donors</h2>
+            <p>Donor information stored in the database.</p>
+        </div>
+
+    </div>
+
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Blood Group</th>
+                    <th>Date of Birth</th>
+                    <th>Contact</th>
+                    <th>Address</th>
+                    <th>Last Donation</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for donor in donors %}
+
+                <tr>
+
+                    <td>#{{ donor.donor_id }}</td>
+
+                    <td>
+                        <strong>{{ donor.name }}</strong>
+                    </td>
+
+                    <td>
+                        <span class="badge badge-danger">
+                            {{ donor.blood_group }}
+                        </span>
+                    </td>
+
+                    <td>
+                        {{ donor.dob }}
+                    </td>
+
+                    <td>
+                        {{ donor.contact }}
+                    </td>
+
+                    <td>
+                        {{ donor.address|default:"-" }}
+                    </td>
+
+                    <td>
+                        {{ donor.last_donation_date|default:"Never" }}
+                    </td>
+
+                    <td>
+
+                        <button class="btn btn-secondary">
+                            View
+                        </button>
+
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+
+                    <td colspan="8" style="text-align:center; padding:30px;">
+
+                        <strong>No donors found.</strong>
+
+                        <br>
+
+                        Add your first donor to get started.
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

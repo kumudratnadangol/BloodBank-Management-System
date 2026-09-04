@@ -1,0 +1,136 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}Blood Bank Management System{% endblock %}
+    </title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">🩸</div>
+
+            <div>
+                <h2>Blood Bank</h2>
+                <span>Management System</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <p class="menu-title">MAIN MENU</p>
+
+            <a href="/" class="nav-item">
+                <span>🏠</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="/donors/" class="nav-item">
+                <span>👤</span>
+                <span>Donors</span>
+            </a>
+
+            <a href="/banks/" class="nav-item">
+                <span>🏦</span>
+                <span>Blood Banks</span>
+            </a>
+
+            <a href="/hospitals/" class="nav-item">
+                <span>🏥</span>
+                <span>Hospitals</span>
+            </a>
+
+            <a href="/units/" class="nav-item">
+                <span>🩸</span>
+                <span>Blood Units</span>
+            </a>
+
+            <a href="/requests/" class="nav-item">
+                <span>📋</span>
+                <span>Requests</span>
+            </a>
+
+            <p class="menu-title reports-title">ANALYTICS</p>
+
+            <a href="/reports/" class="nav-item">
+                <span>📊</span>
+                <span>Reports</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="system-status">
+                <span class="status-dot"></span>
+                System Online
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Area -->
+    <div class="main-wrapper">
+
+        <!-- Top Header -->
+        <header class="topbar">
+
+            <div>
+                <h1>
+                    {% block page_heading %}Dashboard{% endblock %}
+                </h1>
+
+                <p>
+                    {% block page_subtitle %}
+                    Blood Bank Management System
+                    {% endblock %}
+                </p>
+            </div>
+
+            <div class="admin-profile">
+
+                <div class="profile-icon">
+                    👤
+                </div>
+
+                <div class="profile-info">
+                    <strong>Administrator</strong>
+                    <span>Blood Bank Staff</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Page Content -->
+        <main class="content">
+
+            {% block content %}
+            {% endblock %}
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2026 Blood Bank Management System</p>
+            <p>Healthcare • Donation • Life</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

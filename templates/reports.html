@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Reports{% endblock %}
+
+{% block content %}
+<h1>Reports</h1>
+
+<form id="traceForm">
+    <h3>Complex Query 1: Donor-Hospital Trace</h3>
+    <label>Hospital ID</label>
+    <input type="number" id="hospitalTraceId" min="1" required>
+    <button type="submit">Run Trace</button>
+</form>
+
+<table id="traceTable" style="display:none;">
+    <thead>
+        <tr>
+            <th>Request ID</th>
+            <th>Donor Name</th>
+            <th>Blood Group</th>
+            <th>Unit ID</th>
+            <th>Fulfilled Date</th>
+        </tr>
+    </thead>
+    <tbody id="traceTableBody"></tbody>
+</table>
+
+<hr style="margin: 2rem 0;">
+
+<form id="inventoryForm">
+    <h3>Complex Query 2: Bank Inventory Summary</h3>
+    <button type="submit">Load Inventory</button>
+</form>
+
+<table id="inventoryTable" style="display:none;">
+    <thead>
+        <tr>
+            <th>Bank ID</th>
+            <th>Bank Name</th>
+            <th>Total Units</th>
+            <th>Available Units</th>
+            <th>Reserved for Requests</th>
+        </tr>
+    </thead>
+    <tbody id="inventoryTableBody"></tbody>
+</table>
+
+<hr style="margin: 2rem 0;">
+
+<div>
+    <h3>Background Task: Expire Old Blood Units</h3>
+    <p>Scans all blood units and marks any past their expiry date as Expired.</p>
+    <button id="expireBtn">Trigger Expiry Check</button>
+    <p id="expireMsg" style="margin-top:0.5rem; color:green;"></p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/reports.js' %}"></script>
+{% endblock %}
